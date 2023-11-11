@@ -1,15 +1,14 @@
 export default function questao(requisicao, resposta) {
 
     if (requisicao.method === 'GET') {
-        const id = requisicao.query.id
         resposta.status(200).json({
-            id, enunciado: "Qual é a sua cor preferida ?", resposta: [
-                'Azul',
-                'Verde',
-                'Branco',
-                'Preto',
-                'Vermelho',
-                'Amarelo'
+            enunciado: "Os ultimos 6 ganhadores da Copa foram: ", resposta: [
+                'Argentina - 2022',
+                'França - 2018',
+                'Alemanha - 2014',
+                'Espanha - 2010',
+                'Italia - 2006',
+                'Brasil - 2002'
             ]
         })
     } else {
