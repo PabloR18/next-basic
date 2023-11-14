@@ -1,8 +1,12 @@
 export default function questao(requisicao, resposta) {
 
+    const id = requisicao.query.id
+
     if (requisicao.method === 'GET') {
         resposta.status(200).json({
-            enunciado: "Os ultimos 6 ganhadores da Copa foram: ", resposta: [
+            id,
+            enunciado: "Os ultimos 6 ganhadores da Copa foram: ",
+            resposta: [
                 'Argentina - 2022',
                 'França - 2018',
                 'Alemanha - 2014',
@@ -12,6 +16,6 @@ export default function questao(requisicao, resposta) {
             ]
         })
     } else {
-        resposta.status(405).send()
+        resposta.status(405).send() // URl existe, mas o método não é permitido.
     }
 }

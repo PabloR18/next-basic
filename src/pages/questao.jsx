@@ -1,27 +1,27 @@
 import { useEffect } from "react";
 import { useState } from "react"
 
-export default function questao() {
+export default function Questao() {
+
     const [questao, setQuestao] = useState("");
 
     useEffect(() => {
-        fetch('http://localhost:4005/api/questao/1020').then(resposta => resposta.json()).then(questao => setQuestao(questao))
+        fetch('http://localhost:4005/api/questao/22')
+            .then(resposta => resposta.json())
+            .then(setQuestao)
     }, []);
 
     function mapear() {
         if (questao) {
-            return questao.resposta.map((resposta, i) => {
-                return <li key={i}>{resposta}</li>
-            })
+            return questao.resposta.map(resp => <li key={resp.id}>{resp}</li>)
         }
-        return false;
     }
 
     return (
         <>
             <h1>Questão</h1>
             <div>
-                <span>{questao?.enunciado} </span>
+                <span>{questao?.id} - {questao?.enunciado} </span>
                 <br />
                 {mapear()}
             </div>
